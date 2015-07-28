@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>World Flags Game</title>
+
+	<link rel="stylesheet" href="styles.css">
+  <script language="JavaScript" type="text/javascript" src="/js/jquery-1.2.6.min.js"></script>
+
+</head>
+<body>
+
+<div id ="container">
+
+<!-- Start Screen -->
+    <div id="start_screen">
+      <h1 id="title">world flags</h1>
+      <h3 id="credits">
+        by
+        <a href="">Piyush</a>
+        
+        <a href="">Bathwal</a>
+      </h3>
+      <h3 id="last_score"></h3>
+      <h3 id="high_score"></h3>
+      <div class="options">
+        <ul>
+          <li><a href="javascript:newBoard('easy');" id="easy">Easy</a></li>
+          <li><a href="javascript:newBoard('medium');" id="medium">Medium</a></li>
+          <li><a href="javascript:newBoard('hard');" id="hard">Hard</a></li>
+        </ul>
+      </div>
+       <div id ="mute" onclick="muteSound(this)"></div>
+    </div>
+    <!-- /Start Screen -->
+
+    <!-- Loading sounds -->
+    <audio id="start" loop>
+      <source src="pappu-pakia2.3.ogg"  type="audio/ogg">
+      <source src="pappu-pakia2.3.mp3"  type="audio/mp3">
+    </audio>
+    
+    <audio id="match">
+      <!--<source src="pappu-pakia2.3.ogg"  type="audio/ogg">-->
+      <source src="match.mp3"  type="audio/mp3">
+    </audio>
+
+    <audio id="noMatch">
+      <!--<source src="pappu-pakia2.3.ogg"  type="audio/ogg">-->
+      <source src="not-match.mp3"  type="audio/mp3">
+    </audio>
+
+    <audio id="flipped">
+      <!--<source src="pappu-pakia2.3.ogg"  type="audio/ogg">-->
+      <source src="flip.mp3"  type="audio/mp3">
+    </audio>
+ </div>   
+
+    <!--<div id="memory_board"></div>
+    <script> newBoard(); </script>-->
+
+<script type="text/javascript" src="main.js"></script>
+</body>
+</html>

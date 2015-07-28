@@ -1,0 +1,183 @@
+.easy{
+		background: #CCC;
+		border: #999 1px solid;
+		width: 780px;
+		height: 550px;
+		padding: 24px;
+		margin: 0px auto;
+}
+
+.medium{
+		background: #CCC;
+		border: #999 1px solid;
+		width: 970px;
+		height: 550px;
+		padding: 24px;
+		margin: 0px auto;
+}
+
+
+.hard{
+		background: #CCC;
+		border: #999 1px solid;
+		width: 1160px;
+		height: 660px;
+		padding: 24px;
+		margin: 0px auto;
+}
+
+div#memory_board >div{
+		background: url(title.jpg) ;
+		background-size:   cover;                     
+		border: #000 1px solid;
+		width: 130px;
+		height: 75px;
+		float: left;
+		margin: 10px;
+		padding: 20px;
+		font: icon;
+		font-size: 24px;
+		font-weight: bold;
+		cursor: pointer;
+		text-align: left;
+}
+
+#container {
+	position: relative;
+	margin: 20px auto 50px;
+	width: auto;
+	max-width: 1000px;
+	height: 500px;
+	background: url(images/title.jpg) ;
+    background-size:   cover; 
+}
+
+#start_screen {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	z-index: 1;
+	width: 100%;
+
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+
+#title {
+	font-size: 67px;
+	line-height: 100px;
+	font-weight: normal;
+	color: #945430;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+	text-shadow: 3px 3px 0px white;
+}
+
+#credits, #high_score, #last_score {
+	font: 36px 'Happy Sans', cursive;
+	color: white;
+	padding: 0;
+	text-align: center;
+	margin: -10px 0 10px;
+}
+
+#credits a {
+	color: #FFEEAA;
+	text-decoration: none;
+}
+
+.options {
+	height: 400px;
+	background-image: url(images/stand.png);
+	background-position: bottom center;
+	width: 225px;
+	background-repeat: no-repeat;
+	position: absolute;
+	bottom: 0;
+	right: 50px;
+}
+
+.options:before {
+	content: '';
+	background-image: url(images/dig.png);
+	background-repeat: no-repeat;
+	position: absolute;
+	width: 47px;
+	height: 49px;
+	bottom: -1px;
+	left: 50%;
+	margin-left: -27px;
+	z-index: -1;
+}
+
+.options ul {
+	margin: 0;
+	padding: 50px 0 0;
+	list-style: none;
+}
+
+.options ul li {
+	display: block;
+	font: 40px 'Happy Sans', cursive;
+	text-align: center;
+	margin: 0 0 20px;
+}
+
+.options ul li a {
+	color: #FFEEAA;
+	text-decoration: none;
+}
+
+.options ul li:first-child {
+	background: url(images/plank_top.png) no-repeat top center;
+	height: 70px;
+	line-height: 70px;
+}
+
+.options ul li:nth-child(2) {
+	background: url(images/plank_mid.png) no-repeat top center;
+	height: 63px;
+	line-height: 63px;
+}
+
+.options ul li:last-child {
+	background: url(images/plank_bot.png) no-repeat top center;
+	height: 75px;
+	line-height: 75px;
+}
+
+#mute {
+	width: 49px;
+	height: 40px;
+	background: url(images/mute.png) no-repeat;
+	display: block;
+	text-decoration: none;
+	outline: none;
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	z-index: 15;
+	background-position: 0 0;
+}
+
+/* Score Board */
+#score_board {
+	position: absolute;
+	top: 0; left: 0; right: 0;
+	padding: 10px;
+	height: 10%;
+	text-align: left;
+	font-size: 30px;
+	font-weight: normal;
+	font-family: 'Happy Sans', cursive;
+
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+
