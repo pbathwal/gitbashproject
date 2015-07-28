@@ -1,0 +1,16 @@
+<apex:page controller="LoginController" standardStylesheets="false" showHeader="false" sidebar="false" docType="html-5.0">
+   <apex:include pageName="template"/>
+   <main class="content">  
+
+<div class="login" id='login'>
+<apex:form id="loginBlock">
+   
+    <apex:messages style="font-family: 'Open Sans', sans-serif;color: red; font-size: 13px;"/>
+    
+    <h1>Welcome : {!vEmail}</h1>
+        
+
+</apex:form>
+</div>
+</main>
+</apex:page>

@@ -1,0 +1,78 @@
+<apex:page standardStylesheets="false" showHeader="false" sidebar="false" controller="page2Controller">
+ <link href="//sfdc-styleguide.herokuapp.com/styles.css" rel="stylesheet" media="screen"/> 
+
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<apex:form >
+
+<article class="mam bg-1 border border--3 brm">
+  <header class="clear pam border-bottom border--5">
+    <h1 class="fl man fw-normal f5 text-color-1">Topics List</h1>
+  </header>
+  <ul class="man pan list-plain">
+  
+  <!-- ADM201 -->
+    <li class="pam border-bottom border--5">
+      <div class="mbs flag flag--rev">
+      <div class="flag--image prm">
+      <apex:commandButton action="{!admLearn}" rerender="form" style="background:url('{!$Resource.AddGreen}');width:35px;height:35px; border:none; "/>
+        </div>
+        
+        <div class="flag--body">
+          <span class="f3 text-color-1 fw-semibold" style="margin-left:20px;">ADM 201</span>
+        </div>
+        
+      </div>
+    </li>
+    
+      <!-- Dev401 -->
+    <li class="pam border-bottom border--5">
+      <div class="mbs flag flag--rev">
+      <div class="flag--image prm">
+      <apex:commandButton action="{!devLearn}" rerender="form" style="background:url('{!$Resource.AddGreen}');width:35px;height:35px; border:none"/>
+        </div>
+        
+        <div class="flag--body">
+          <span class="f3 text-color-1 fw-semibold" style="margin-left:20px;">DEV 401</span>
+        </div>
+        
+      </div>
+    </li>
+    
+      <!-- Sales Cloud Consultant -->
+    <li class="pam border-bottom border--5">
+      <div class="mbs flag flag--rev">
+      <div class="flag--image prm">
+      <apex:commandButton action="{!salesLearn}" rerender="form" style="background:url('{!$Resource.AddGreen}');width:35px;height:35px; border:none"/>
+        </div>
+        
+        <div class="flag--body">
+          <span class="f3 text-color-1 fw-semibold" style="margin-left:20px;">Sales Cloud Consultant</span>
+        </div>
+        
+      </div>
+    </li>
+    
+      <!-- Service Cloud Consultant -->
+    <li class="pam border-bottom border--5">
+      <div class="mbs flag flag--rev">
+      <div class="flag--image prm">
+      <apex:commandButton action="{!serviceLearn}" rerender="form" style="background:url('{!$Resource.AddGreen}');width:35px;height:35px; border:none"/>
+        </div>
+        
+        <div class="flag--body">
+          <span class="f3 text-color-1 fw-semibold" style="margin-left:20px;">Service Cloud Consultant</span>
+        </div>
+        
+      </div>
+    </li>
+    
+    
+  </ul>
+</article>
+
+</apex:form>
+
+</apex:page>

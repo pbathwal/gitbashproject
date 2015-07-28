@@ -1,0 +1,67 @@
+<apex:page standardcontroller="Task" extensions="CreateTask" showHeader="false" sidebar="false" standardStylesheets="false">
+         <link href="//sfdc-styleguide.herokuapp.com/styles.css" rel="stylesheet" media="screen"/> 
+
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+ <style type="text/css">
+.place{
+padding: 35px;
+
+}
+#form{
+margin:10px;
+}
+.sf1sty{
+width:98%;
+margin:0px auto;
+}
+
+</style>
+
+  
+  <apex:form id="form">
+  <div class="content-block">
+<apex:outputPanel rendered="{!taskcreated==false}" styleClass="sf1sty">
+   <apex:outputLabel for="id1" value="Assigned To">
+   <apex:inputField value="{!t.ownerId}" id="id1" styleClass="size-full ht-44 plm prx pvm input input--default input--ph-1 input--focus-1" />
+   </apex:outputLabel>
+ 
+  
+ <!--  <apex:outputLabel for="id2" value="Assignment Name">
+   <apex:inputField value="{!t.subject}" id="id2" styleClass="mbm size-full phm pvm input input--default input--ph-1 input--focus-1"/>
+   </apex:outputLabel>-->
+   
+   <apex:outputLabel for="id8" value="Assignmnent Topic">
+   <apex:inputField value="{!t.Topics__c}" id="id8" styleClass="mbm size-full phm pvm input input--default input--ph-1 input--focus-1"/>
+   </apex:outputLabel>
+   
+   
+   <apex:outputLabel for="id5" value="Difficulty Level">
+   <apex:inputField value="{!t.Difficulty_Level__c}" id="id5" styleClass="mbm size-full phm pvm input input--default input--ph-1 input--focus-1"/>
+   </apex:outputLabel><br/>
+   
+   <apex:outputLabel for="id6" value="Assignment Status">
+   <apex:inputField value="{!t.Status}" id="id6" styleClass="mbm size-full phm pvm input input--default input--ph-1 input--focus-1"/>
+   </apex:outputLabel>
+   <apex:outputLabel for="id3" value="Due Date">
+   <apex:inputField value="{!t.ActivityDate}" id="id3" styleClass="mbm size-full phm pvm input input--default input--ph-1 input--focus-1"/>
+   </apex:outputLabel><br/>
+   
+   <apex:outputLabel for="id4" value="Priority">
+   <apex:inputField value="{!t.priority}" id="id4" styleClass="mbm size-full phm pvm input input--default input--ph-1 input--focus-1"/>
+   </apex:outputLabel><br/>
+   
+   <apex:commandButton value="Create Assignment" action="{!createassignment}" styleClass="btn bg-primary-btn btn--primary brm pvs phm border border--3 fr mrm mvm text-color-5 f4 fw-semibold" reRender="form"/>
+  </apex:outputPanel> 
+  <apex:outputPanel rendered="{!taskcreated}" >
+   <h1>Assignment Created! Assignee will be notified of this task. </h1>
+   <apex:commandButton value="Go Home" action="{!goHome}" styleClass="btn bg-primary-btn btn--primary brm pvs phm border border--3 fr mrm mvm text-color-5 f4 fw-semibold" />
+  </apex:outputPanel>
+
+
+</div> 
+ </apex:form>
+
+
+</apex:page>

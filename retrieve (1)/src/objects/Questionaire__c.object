@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Multi_Select__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF((Solution1__c !=null &amp;&amp; Solution2__c == null &amp;&amp; Solution3__c == null),FALSE,TRUE)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Multi-Select</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Multiselect__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Multiselect?</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Option1__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Option1</label>
+        <referenceTo>Option__c</referenceTo>
+        <relationshipLabel>Questionaires (Option1)</relationshipLabel>
+        <relationshipName>Questionaires3</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Option2__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Option2</label>
+        <referenceTo>Option__c</referenceTo>
+        <relationshipLabel>Questionaires (Option2)</relationshipLabel>
+        <relationshipName>Questionaires4</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Option3__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Option3</label>
+        <referenceTo>Option__c</referenceTo>
+        <relationshipLabel>Questionaires (Option3)</relationshipLabel>
+        <relationshipName>Questionaires5</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Option4__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Option4</label>
+        <referenceTo>Option__c</referenceTo>
+        <relationshipLabel>Questionaires (Option4)</relationshipLabel>
+        <relationshipName>Questionaires6</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Question__c</fullName>
+        <externalId>false</externalId>
+        <label>Question</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Solution1__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Solution 1</label>
+        <referenceTo>Option__c</referenceTo>
+        <relationshipLabel>Questionaires</relationshipLabel>
+        <relationshipName>Questionaires</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Solution2__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Solution 2</label>
+        <referenceTo>Option__c</referenceTo>
+        <relationshipLabel>Questionaires (Solution 2)</relationshipLabel>
+        <relationshipName>Questionaires1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Solution3__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Solution 3</label>
+        <referenceTo>Option__c</referenceTo>
+        <relationshipLabel>Questionaires (Solution 3)</relationshipLabel>
+        <relationshipName>Questionaires2</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>ADM 201</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DEV 401</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales Cloud</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service Cloud</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <label>Questionaire</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>OBJECT_ID</columns>
+        <columns>Type__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
+    <nameField>
+        <displayFormat>A-{000}</displayFormat>
+        <label>Questionaire Number</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Questionaires</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Type__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>OBJECT_ID</customTabListAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>Option1_cannot_be_same_as_other_options</fullName>
+        <active>true</active>
+        <errorConditionFormula>(Option1__c !=null) &amp;&amp; (Option1__c == Option2__c || Option1__c == Option3__c || Option1__c == Option4__c)</errorConditionFormula>
+        <errorDisplayField>Option1__c</errorDisplayField>
+        <errorMessage>Options cannot be similar!!</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Option2_cannot_be_similar</fullName>
+        <active>true</active>
+        <errorConditionFormula>(Option2__c != null) &amp;&amp; (Option2__c == Option1__c || Option2__c == Option3__c || Option2__c == Option4__c)</errorConditionFormula>
+        <errorDisplayField>Option2__c</errorDisplayField>
+        <errorMessage>Options cannot be similar!!!</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Option3_cannot_be_similar</fullName>
+        <active>true</active>
+        <errorConditionFormula>(Option3__c !=null) &amp;&amp; (Option3__c == Option1__c || Option3__c == Option2__c || Option3__c == Option4__c)</errorConditionFormula>
+        <errorDisplayField>Option3__c</errorDisplayField>
+        <errorMessage>Options cannot be similar</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Option4_cannot_be_similar</fullName>
+        <active>true</active>
+        <errorConditionFormula>(Option4__c != null) &amp;&amp; (Option4__c == Option1__c || Option4__c == Option2__c || Option4__c == Option3__c)</errorConditionFormula>
+        <errorDisplayField>Option4__c</errorDisplayField>
+        <errorMessage>Options cannot be similar</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Solution1_cannot_be_similar</fullName>
+        <active>true</active>
+        <errorConditionFormula>(Solution1__c !=null) &amp;&amp; (Solution1__c == Solution2__c || Solution1__c ==Solution3__c )</errorConditionFormula>
+        <errorDisplayField>Solution1__c</errorDisplayField>
+        <errorMessage>Solutions cannot be similar to each other!!!!</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Solution1_should_match_Options</fullName>
+        <active>false</active>
+        <errorConditionFormula>(Solution1__c!=null) &amp;&amp; (Solution1__c!=Option1__c || Solution1__c !=Option2__c || Solution1__c!=Option3__c || Solution1__c != Option4__c)</errorConditionFormula>
+        <errorMessage>Solution 1 should match any of the options</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Solution2_cannot_be_similar</fullName>
+        <active>true</active>
+        <errorConditionFormula>(Solution2__c !=null) &amp;&amp; (Solution2__c == Solution1__c || Solution2__c ==Solution3__c )</errorConditionFormula>
+        <errorDisplayField>Solution2__c</errorDisplayField>
+        <errorMessage>Solutions cannot be similar to each other</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Solution_2_should_match_the_options</fullName>
+        <active>false</active>
+        <errorConditionFormula>(Solution2__c!=null) &amp;&amp; (Solution2__c != Option1__c || Solution2__c != Option2__c || Solution2__c != Option3__c || Solution2__c != Option4__c)</errorConditionFormula>
+        <errorMessage>Solution 2 should match any of the options</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Solution_3_cannot_be_similar</fullName>
+        <active>true</active>
+        <errorConditionFormula>(Solution3__c !=null) &amp;&amp; (Solution3__c == Solution1__c || Solution3__c ==Solution2__c )</errorConditionFormula>
+        <errorDisplayField>Solution3__c</errorDisplayField>
+        <errorMessage>Solutions cannot be similar to each other</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Solution_3_should_match_any_options</fullName>
+        <active>false</active>
+        <errorConditionFormula>(Solution3__c!=null) &amp;&amp; (Solution3__c != Option1__c || Solution3__c != Option2__c || Solution3__c != Option3__c || Solution3__c != Option4__c)</errorConditionFormula>
+        <errorMessage>Solution 3 should match any one of the options.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Solutions_should_match_options</fullName>
+        <active>false</active>
+        <errorConditionFormula>((Solution1__c != Option1__c) &amp;&amp; (Solution1__c != Option2__c) &amp;&amp; (Solution1__c != Option3__c) &amp;&amp; (Solution1__c != Option4__c)) || ((Solution2__c != Option1__c) &amp;&amp; (Solution2__c != Option2__c) &amp;&amp; (Solution2__c != Option3__c) &amp;&amp; (Solution2__c != Option4__c)) || ((Solution3__c != Option1__c) &amp;&amp; (Solution3__c != Option2__c) &amp;&amp; (Solution3__c != Option3__c) &amp;&amp; (Solution3__c != Option4__c))</errorConditionFormula>
+        <errorMessage>Solutions should match the options provided!</errorMessage>
+    </validationRules>
+</CustomObject>

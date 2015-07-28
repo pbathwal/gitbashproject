@@ -1,0 +1,47 @@
+<apex:page controller="MyTasks" standardStylesheets="false" showHeader="false" sidebar="false">
+ <link href="//sfdc-styleguide.herokuapp.com/styles.css" rel="stylesheet" media="screen"/> 
+
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<style>
+.mvm{
+margin-top:0px !important;
+}
+.top{
+padding:19px;
+}
+</style>
+  <apex:form id="form">
+<article class="o-hidden brm border border--3">
+  
+    <div class="mbs flag flag--rev">
+      <apex:outputPanel rendered="{!havetasks}" styleClass="flag--body" >
+   <apex:repeat value="{!mytasks}" var="t" >
+   <div class="flag pam bg-3 border-bottom border--8">
+   <apex:outputField value="{!t.Topics__c}" styleclass="flag--image prm top" />
+  
+    <div class="flag--image prm">
+   <apex:commandButton value="Start" reRender="form" action="{!startAssignment}" styleClass="btn bg-primary-btn btn--primary brm pvs phm border border--3 fr mrm mvm text-color-5 f4 fw-semibold" >
+    <apex:param assignTo="{!myparam}" value="{!t.id}" name="myparam" />
+   </apex:commandbutton>
+ </div>
+  </div>
+   </apex:repeat>
+   
+   </apex:outputPanel>
+   
+    <div class="flag--image prm">
+      <span class="f4 text-color-1 db"> <apex:outputPanel rendered="{!havetasks==false}">
+    <h1> You do not have any assignments at the moment!</h1>
+    <apex:commandButton value="Go Home" action="{!goHome}" styleclass="btn bg-primary-btn btn--primary pvs size-full brm no-border learnc text-color-5 f3 fw-semibold"/>
+   </apex:outputPanel></span>
+   </div>
+    </div>
+ 
+  
+</article>
+
+ 
+  
+  </apex:form>
+</apex:page>

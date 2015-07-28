@@ -1,0 +1,72 @@
+<apex:page standardStylesheets="false" showHeader="false" sidebar="false" controller="LandingPageController">
+         <link href="//sfdc-styleguide.herokuapp.com/styles.css" rel="stylesheet" media="screen"/> 
+ <style type="text/css">
+ 
+#wrap{
+
+margin:0px auto;
+
+}
+.learnc{
+background:#e260ab;
+}
+.playc{
+background:#34b59e;
+}
+.aasignc{
+background:#344a5f;
+}
+.main{
+background:#ffffff;
+}
+ </style>
+ 
+  <body>
+  <apex:form >
+  
+  <apex:actionFunction name="gotoLanding" action="{!gotoLandingPage}"/>
+  <apex:actionFunction name="gotoLearn" action="{!gotoLearnPage}"/>
+  <apex:actionFunction name="postIt" action="{!postOnChatter1}"/>
+  <header class="bg-anchor tc ptm">
+  <div class="icon icon--d"> <apex:image value="{!URLFOR($Resource.Keepitup)}" width="100"/></div>
+  <h1 class="f1 text-color-5 man">
+   Keep it Up
+  </h1>
+  <h2 class="f3 text-color-5 opacity-40 man pbm">
+   You have gained {!points} points!
+  </h2>
+ 
+</header>
+ <apex:outputPanel rendered="{!check1==false}">
+ <section>
+ <p>Do you want to post your score in Chatter?</p>
+  <article class="mbm db">
+    <input type="checkbox" class="checkbox checkbox--default checkbox--states-1 brm mrs bg-secondary-btn sq-22 a-mid dib" id="checkbox-1a" onclick="postIt();" />
+    <label class="f4 text-color-1" for="checkbox-1a">Tick if Yes</label>
+  </article>
+
+</section>
+</apex:outputPanel>
+<apex:outputPanel rendered="{!check1}">
+ <section>
+ <p>Posted to Chatter.</p>
+
+</section>
+</apex:outputPanel>
+  <div class="sg-phone--container">
+  <div class="brm pam pos-rel tc">
+  <button type="button" class="btn bg-primary-btn btn--primary pvs size-full brm no-border main" data-loading-text="Loading..." onclick="gotoLanding();" > 
+ <span class="text-color-1 f3 fw-semibold">Back to Home Screen</span>
+ </button> 
+ </div>
+  </div>
+  <div class="sg-phone--container">
+  <div class="brm pam pos-rel tc">
+  <button type="button" class="btn bg-primary-btn btn--primary pvs size-full brm no-border " data-loading-text="Loading..." onclick="gotoLearn();" > 
+ <span class="text-color-5 f3 fw-semibold">Continue to Learn</span>
+ </button> 
+ </div>
+  </div>
+</apex:form>
+     </body>
+</apex:page>

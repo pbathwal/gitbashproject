@@ -1,0 +1,222 @@
+<apex:page standardStylesheets="false" showHeader="false" sidebar="false" controller="playController">
+ <link href="//sfdc-styleguide.herokuapp.com/styles.css" rel="stylesheet" media="screen"/> 
+<script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<style>
+.radio{
+
+color : #34b59e;
+padding : 5px 15px;
+border:none !important;
+}
+.radio1{
+border:none !important;
+color : #e260ab;
+padding : 5px 15px;
+}
+.radio2{
+border:none !important;
+color : #34b59e;
+padding : 5px 15px;
+}
+.question table tr td
+{
+ display: block;
+}
+@media screen and (max-width: 767px) {
+    .content-block {
+        width: 100%;
+        float: none;
+    }
+}
+fieldset{
+
+}
+div.content-block{
+color:#ffffff ;
+
+background:#34b59e !important;
+}
+sg-phone--container{
+
+}
+.question table tr td{
+padding:16px;
+}
+.sf1select{
+width: 99%;
+margin: 0px auto;
+border-radius:2px;
+line-height: 20px;
+border: 1px solid #dfdfdf;
+/* padding: 69px; */
+}
+.sf1select1{
+width: 99%;
+margin: 0px auto;
+border-radius:2px;
+line-height: 35px;
+border: 1px solid #dfdfdf;
+}
+.place{
+padding: 35px;
+}
+.place1{
+padding: 15px;
+}
+#form{
+margin:10px;
+}
+
+</style>
+<!--
+<style>
+.radio{
+border-radius: 100px;
+outline: 2px solid #34b59e;
+
+}
+.radio2{
+border-radius: 100px;
+background: red;
+color : white;
+padding : 5px 15px;
+}
+.radio1{
+border-radius: 100px;
+outline: 2px solid #f57376;
+}
+.question table tr td
+{
+ display: block;
+}
+
+</style> -->
+ <apex:form id="form">
+ <apex:pagemessages ></apex:pagemessages>
+<!-- <apex:actionFunction name="checked1" action="{!checked1}"/>
+ <apex:actionFunction name="checked2" action="{!checked2}"/>
+ <apex:actionFunction name="checked3" action="{!checked3}"/>
+ <apex:actionFunction name="checked4" action="{!checked4}"/> -->
+ 
+ <Apex:outputPanel rendered="{!flag==false && currQuestion.Multi_Select__c ==false}">
+ <div class="sg-phone--container">
+ <div class="question">
+ 
+  <apex:selectradio value="{!answer}" styleclass="sf1select" >
+  <div class="content-block place">
+  {!currQuestion.Question__c}
+  </div>
+  <apex:selectOptions value="{!options}"/>
+   </apex:selectradio>
+  <apex:commandButton value="Quit" action="{!quit}" rerender="form" styleClass="btn bg-primary-btn btn--primary brm pvs phm border border--3 fr mrm mvm text-color-5 f4 fw-semibold"/>
+  <apex:commandButton value="Submit" action="{!submitAns}" rerender="form" styleClass="btn bg-primary-btn btn--primary brm pvs phm border border--3 fr mrm mvm text-color-5 f4 fw-semibold"/>
+ </div> 
+ </div>
+ 
+ </Apex:outputPanel>
+ <!--------------------------------------------Multiselect------------------------------------------->
+ 
+ <Apex:outputPanel rendered="{!flag==false && currQuestion.Multi_Select__c==true}">
+ <div class="question">
+   <div class="content-block place">
+ {!currQuestion.Question__c}</div>
+ <div class="sf1select1 place1">
+ <section>
+  <article class="mbm db">
+  <apex:outputText value="{!currQuestion.Option1__r.Option__c}">
+  <apex:inputCheckbox value="{!check1}" styleClass="checkbox checkbox--default checkbox--states-1 brm mrs bg-secondary-btn sq-22 a-mid dib"> </apex:inputcheckbox>
+  </apex:outputText><br/>
+  <apex:outputText value="{!currQuestion.Option2__r.Option__c}">
+  <apex:inputCheckbox value="{!check2}" styleClass="checkbox checkbox--default checkbox--states-1 brm mrs bg-secondary-btn sq-22 a-mid dib" ></apex:inputcheckbox>
+ </apex:outputText><br/>
+ <apex:outputText value="{!currQuestion.Option3__r.Option__c}">
+  <apex:inputCheckbox value="{!check3}" styleClass="checkbox checkbox--default checkbox--states-1 brm mrs bg-secondary-btn sq-22 a-mid dib" ></apex:inputcheckbox>
+ </apex:outputText><br/>
+ <apex:outputText value="{!currQuestion.Option4__r.Option__c}">
+  <apex:inputCheckbox value="{!check4}" styleClass="checkbox checkbox--default checkbox--states-1 brm mrs bg-secondary-btn sq-22 a-mid dib" ></apex:inputcheckbox>
+ </apex:outputText><br/>
+ <!--<input type="checkbox" class="checkbox checkbox--default checkbox--states-1 brm mrs bg-secondary-btn sq-22 a-mid dib" id="checkbox-2a" name="{!check1}" value="true" onclick="checked1()"/>{!currQuestion.Option1__r.Option__c}<br/>
+ <input type="checkbox" class="checkbox checkbox--default checkbox--states-1 brm mrs bg-secondary-btn sq-22 a-mid dib" id="checkbox-2a" name="{!check2}" value="true" onclick="checked2()"/>{!currQuestion.Option1__r.Option__c}<br/>
+ <input type="checkbox" class="checkbox checkbox--default checkbox--states-1 brm mrs bg-secondary-btn sq-22 a-mid dib" id="checkbox-2a" name="{!check3}" value="true" onclick="checked3()"/>{!currQuestion.Option1__r.Option__c}<br/>
+ <input type="checkbox" class="checkbox checkbox--default checkbox--states-1 brm mrs bg-secondary-btn sq-22 a-mid dib" id="checkbox-2a" name="{!check4}" value="true" onclick="checked4()"/>{!currQuestion.Option1__r.Option__c}<br/>-->
+ </article>
+</section>
+ </div>
+  <apex:commandButton value="Submit" action="{!submitAns}" reRender="form" styleClass="btn bg-primary-btn btn--primary brm pvs phm border border--3 fr mrm mvm text-color-5 f4 fw-semibold"/>
+  <apex:commandButton value="Quit" action="{!quit}" rerender="form" styleClass="btn bg-primary-btn btn--primary brm pvs phm border border--3 fr mrm mvm text-color-5 f4 fw-semibold"/>
+ </div> 
+ 
+ </Apex:outputPanel>
+<!----------------------------------------------------------------------------------------------------> 
+ <div>
+ <apex:outputPanel rendered="{!flag && currQuestion.Multi_Select__c ==false }">
+ <div class="content-block place">
+ {!currQuestion.Question__c}
+ </div>
+  <div class="sf1select">
+  <apex:repeat value="{!options}" var="op"> 
+ 
+  <apex:selectradio value="{!answer1}" styleClass="{!IF(op.value==currquestion.Solution1__c,'radio',IF(answer!=currquestion.Solution1__c && op.value==answer,'radio1', ''))}">
+  <apex:selectOption value="{!op}"/>
+  </apex:selectradio>
+  </apex:repeat>
+  </div>
+  <apex:outputPanel rendered="{!correct}">
+ <!-- <h2><span style="color:green;"> Wohoo!!!!This is the correct answer!!!</span></h2> -->
+  </apex:outputPanel>
+  <apex:outputPanel rendered="{!correct==false}">
+<!--  <h2><span style="color:red;">Sorry!!! Wrong answer! The correct answer id : {!currQuestion.Solution1__r.Option__c}</span></h2> -->
+  </apex:outputPanel><br/>
+  <apex:commandButton value="Quit" action="{!quit}" rerender="form" rendered="{!completed==false}" styleClass="btn bg-primary-btn btn--primary brm pvs phm border border--3 fr mrm mvm text-color-5 f4 fw-semibold"/>
+  <apex:commandButton value="Next Question" action="{!nextQuestion}" rendered="{!completed==false}" rerender="form" styleClass="btn bg-primary-btn btn--primary brm pvs phm border border--3 fr mrm mvm text-color-5 f4 fw-semibold"/><br/>
+  <apex:commandButton value="Done" action="{!done}" rendered="{!completed}" reRender="form" styleClass="btn bg-primary-btn btn--primary brm pvs phm border border--3 fr mrm mvm text-color-5 f4 fw-semibold"/>
+  <apex:commandButton value="Start Over" action="{!startOver}" rendered="{!completed}" reRender="form" styleClass="btn bg-primary-btn btn--primary brm pvs phm border border--3 fr mrm mvm text-color-5 f4 fw-semibold"/>
+ </apex:outputPanel> 
+ </div>
+ 
+ 
+ <!---------------------------------------Multiselect----------------------------------------------->
+ 
+ <div>
+ <apex:outputPanel rendered="{!flag==true && currQuestion.Multi_Select__c ==true }">
+  <div class="content-block place">
+ {!currQuestion.Question__c}</div>
+  <div class="sf1select1 place1">
+ <section>
+  <article class="mbm db">
+   <input type="checkbox" class="checkbox checkbox--default checkbox--states-1 brm mrs bg-secondary-btn sq-22 a-mid dib" id="checkbox-2a"/>
+<apex:outputText value="{!currQuestion.Option1__r.Option__c}" styleClass="{!IF(check1==true && (currQuestion.Option1__c == currQuestion.Solution1__c || currQuestion.Option1__c == currQuestion.Solution2__c || currQuestion.Option1__c == currQuestion.Solution3__c),'radio2',IF(check1==false && (currQuestion.Option1__c == currQuestion.Solution1__c || currQuestion.Option1__c == currQuestion.Solution2__c || currQuestion.Option1__c == currQuestion.Solution3__c),'radio2',''))}"></apex:outputText><br/>
+ <input type="checkbox" class="checkbox checkbox--default checkbox--states-1 brm mrs bg-secondary-btn sq-22 a-mid dib" id="checkbox-2a"/>
+<apex:outputText value="{!currQuestion.Option2__r.Option__c}" styleClass="{!IF(check2==true && (currQuestion.Option2__c == currQuestion.Solution1__c || currQuestion.Option2__c == currQuestion.Solution2__c || currQuestion.Option2__c == currQuestion.Solution3__c),'radio2',IF(check2==false && (currQuestion.Option2__c == currQuestion.Solution1__c || currQuestion.Option2__c == currQuestion.Solution2__c || currQuestion.Option2__c == currQuestion.Solution3__c),'radio2',''))}"></apex:outputText><br/>
+  <input type="checkbox" class="checkbox checkbox--default checkbox--states-1 brm mrs bg-secondary-btn sq-22 a-mid dib" id="checkbox-2a"/>
+  <apex:outputText value="{!currQuestion.Option3__r.Option__c}" styleClass="{!IF(check3==true && (currQuestion.Option3__c == currQuestion.Solution1__c || currQuestion.Option3__c == currQuestion.Solution2__c || currQuestion.Option3__c == currQuestion.Solution3__c),'radio2',IF(check3==false && (currQuestion.Option3__c == currQuestion.Solution1__c || currQuestion.Option3__c == currQuestion.Solution2__c || currQuestion.Option3__c == currQuestion.Solution3__c),'radio2',''))}"></apex:outputText><br/>
+ 
+ <input type="checkbox" class="checkbox checkbox--default checkbox--states-1 brm mrs bg-secondary-btn sq-22 a-mid dib" id="checkbox-2a"/>
+  <apex:outputText value="{!currQuestion.Option4__r.Option__c}" styleClass="{!IF(check4==true && (currQuestion.Option4__c == currQuestion.Solution1__c || currQuestion.Option4__c == currQuestion.Solution2__c || currQuestion.Option4__c == currQuestion.Solution3__c),'radio2',IF(check4==false && (currQuestion.Option4__c == currQuestion.Solution1__c || currQuestion.Option4__c == currQuestion.Solution2__c || currQuestion.Option4__c == currQuestion.Solution3__c),'radio2',''))}"></apex:outputText><br/>
+
+ <!-- <apex:inputCheckbox value="{!check5}" styleClass="{!IF(check1==true && (currQuestion.Option1__c == currQuestion.Solution1__c || currQuestion.Option1__c == currQuestion.Solution2__c || currQuestion.Option1__c == currQuestion.Solution3__c),'radio2',IF(check1==false && (currQuestion.Option1__c == currQuestion.Solution1__c || currQuestion.Option1__c == currQuestion.Solution2__c || currQuestion.Option1__c == currQuestion.Solution3__c),'radio2',''))}">{!currQuestion.Option1__r.Option__c}</apex:inputcheckbox><br/>
+ 
+  <apex:inputCheckbox value="{!check5}" styleClass="{!IF(check2==true && (currQuestion.Option2__c == currQuestion.Solution1__c || currQuestion.Option2__c == currQuestion.Solution2__c || currQuestion.Option2__c == currQuestion.Solution3__c),'radio2',IF(check2==false && (currQuestion.Option2__c == currQuestion.Solution1__c || currQuestion.Option2__c == currQuestion.Solution2__c || currQuestion.Option2__c == currQuestion.Solution3__c),'radio2',''))}">{!currQuestion.Option2__r.Option__c}</apex:inputcheckbox><br/>
+ 
+  <apex:inputCheckbox value="{!check5}" styleClass="{!IF(check3==true && (currQuestion.Option3__c == currQuestion.Solution1__c || currQuestion.Option3__c == currQuestion.Solution2__c || currQuestion.Option3__c == currQuestion.Solution3__c),'radio2',IF(check3==false && (currQuestion.Option3__c == currQuestion.Solution1__c || currQuestion.Option3__c == currQuestion.Solution2__c || currQuestion.Option3__c == currQuestion.Solution3__c),'radio2',''))}">{!currQuestion.Option3__r.Option__c}</apex:inputcheckbox><br/>
+ 
+
+  <apex:inputCheckbox value="{!check5}" styleClass="{!IF(check4==true && (currQuestion.Option4__c == currQuestion.Solution1__c || currQuestion.Option4__c == currQuestion.Solution2__c || currQuestion.Option4__c == currQuestion.Solution3__c),'radio2',IF(check4==false && (currQuestion.Option4__c == currQuestion.Solution1__c || currQuestion.Option4__c == currQuestion.Solution2__c || currQuestion.Option4__c == currQuestion.Solution3__c),'radio2',''))}">{!currQuestion.Option4__r.Option__c}</apex:inputcheckbox><br/>
+ -->
+  <apex:outputPanel rendered="{!correct}">
+  <!--<h2><span style="color:green;"> Wohoo!!!!This is the correct answer!!!</span></h2> -->
+  </apex:outputPanel>
+  <apex:outputPanel rendered="{!correct==false}">
+<!--  <h2><span style="color:red;">Sorry!!! Wrong answer! The correct options are highlighted above. </span></h2> -->
+  </apex:outputPanel>
+  </article>
+  </section></div>
+  <apex:commandButton value="Quit" action="{!quit}" rerender="form" rendered="{!completed==false}" styleClass="btn bg-primary-btn btn--primary brm pvs phm border border--3 fr mrm mvm text-color-5 f4 fw-semibold"/>
+  <apex:commandButton value="Next Question" action="{!nextQuestion}" rendered="{!completed==false}" rerender="form" styleClass="btn bg-primary-btn btn--primary brm pvs phm border border--3 fr mrm mvm text-color-5 f4 fw-semibold"/><br/>
+  <apex:commandButton value="Done" action="{!done}" rendered="{!completed}" reRender="form" styleClass="btn bg-primary-btn btn--primary brm pvs phm border border--3 fr mrm mvm text-color-5 f4 fw-semibold"/>
+  <apex:commandButton value="Start Over" action="{!startOver}" rendered="{!completed}" reRender="form" styleClass="btn bg-primary-btn btn--primary brm pvs phm border border--3 fr mrm mvm text-color-5 f4 fw-semibold"/>
+ </apex:outputPanel> 
+ </div>
+ </apex:form>
+</apex:page>

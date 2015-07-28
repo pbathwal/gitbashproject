@@ -1,0 +1,274 @@
+<apex:page standardStylesheets="false" showHeader="false" sidebar="false" controller="playController1">
+ <link href="//sfdc-styleguide.herokuapp.com/styles.css" rel="stylesheet" media="screen"/> 
+<script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<style>
+.radio{
+
+color : #e260ab;
+padding : 5px 15px;
+border:none !important;
+}
+.radio1{
+border:none !important;
+color : #e260ab;
+padding : 5px 15px;
+}
+.radio2{
+border:none !important;
+color : green;
+padding : 5px 15px;
+}
+.question table tr td
+{
+ display: block;
+}
+@media screen and (max-width: 767px) {
+    .content-block {
+        width: 100%;
+        float: none;
+    }
+}
+fieldset{
+
+}
+div.content-block{
+color:#ffffff ;
+
+background:#e260ab !important;
+}
+sg-phone--container{
+
+}
+.question table tr td{
+padding:16px;
+}
+.sf1select{
+width: 99%;
+margin: 0px auto;
+border-radius:2px;
+line-height: 20px;
+border: 1px solid #dfdfdf;
+/* padding: 69px; */
+}
+.sf1select1{
+width: 99%;
+margin: 0px auto;
+border-radius:2px;
+line-height: 35px;
+border: 1px solid #dfdfdf;
+}
+.place{
+padding: 35px;
+}
+.place1{
+padding: 15px;
+}
+#form{
+margin:10px;
+}
+.timecls{
+color:#2a94d6;
+font-weight:bold;
+}
+.imgcls{
+
+}
+</style>
+
+
+
+ 
+ <html>
+<head>
+<script type="text/javascript" src="/Timer.js" >
+
+
+</script>
+</head>
+
+<body>
+
+        <div class="flag--body">
+      
+         <label for="task-1">
+                    <h1 class="dib man f3 text-color-1">
+                       
+<div id='timer' class="timecls"/>
+<script type="text/javascript">
+window.onload = CreateTimer("timer",{!timeSelectedinSecs});
+
+var Timer;
+var TotalSeconds;
+
+
+function CreateTimer(TimerID, Time) {
+Timer = document.getElementById(TimerID);
+TotalSeconds = Time;
+
+UpdateTimer()
+window.setTimeout("Tick()", 1000);
+}
+function Tick() {
+if (TotalSeconds <= 0) {
+//alert("Time's up!")
+
+return;
+}
+
+TotalSeconds -= 1;
+UpdateTimer()
+window.setTimeout("Tick()", 1000);
+}
+ 
+
+function UpdateTimer() {
+var Seconds = TotalSeconds;
+
+var Days = Math.floor(Seconds / 86400);
+Seconds -= Days * 86400;
+
+var Hours = Math.floor(Seconds / 3600);
+Seconds -= Hours * (3600);
+
+var Minutes = Math.floor(Seconds / 60);
+Seconds -= Minutes * (60);
+
+
+var TimeStr = ((Days > 0) ? Days + " days " : "") + LeadingZero(Hours) + ":" + LeadingZero(Minutes) + ":" + LeadingZero(Seconds)
+
+
+Timer.innerHTML = TimeStr;
+}
+
+
+function LeadingZero(Time) {
+
+return (Time < 10) ? "0" + Time : + Time;
+
+}
+
+
+</script>
+</h1>
+</label>
+</div>
+
+
+</body>
+</html>
+
+<!-- test -->
+
+ 
+                       
+            
+ <apex:form id="form">
+ 
+ <apex:outputPanel >
+ <apex:pagemessages />
+ </apex:outputPanel>
+ <!-- <div class="prn plm flag--image">-->
+  <div class="flag--body">
+                <label for="task-1">
+                    <h1 class="dib man f3 text-color-1">
+   <apex:outputPanel styleClass="f6 text-color-2">
+
+ <apex:image value="{!$Resource.Life3}" rendered="{!IF((numofWrong==0 && lifelinesUsed==0) || (numofWrong==3 && lifelinesUsed==1),true,false)}"/>
+ <apex:image value="{!$Resource.Life2}" rendered="{!IF((numofWrong==1 && lifelinesUsed==0) || (numofWrong==4 && lifelinesUsed==1),true,false)}"/>
+ <apex:image value="{!$Resource.Life1}" rendered="{!IF((numofWrong==2 && lifelinesUsed==0) || (numofWrong==5 && lifelinesUsed==1),true,false)}"/>
+ <apex:image value="{!$Resource.Life0}" rendered="{!IF((numofWrong==3 && lifelinesUsed==0) || (numofWrong==6 && lifelinesUsed==1),true,false)}"/>
+
+      
+<!-- <p>{!numOfWrong}</p>-->
+ </apex:outputPanel>
+  </h1>
+                   
+                </label>
+            </div>
+ <Apex:outputPanel rendered="{!flag==false && timeout==false && currQuestion.Multi_Select__c==false && doneplay==false && threewrong==false}">
+ 
+ <div class="question">
+  <apex:selectradio value="{!answer}" styleclass="sf1select">
+  <div class="content-block place">
+  {!currQuestion.Question__c}</div>
+  <apex:selectOptions value="{!options}"/>
+   </apex:selectradio>
+  
+  <apex:commandButton value="Next Question" action="{!submitAns}" rendered="{!completed==false}" rerender="form" styleClass="btn bg-primary-btn btn--primary brm pvs phm border border--3 fr mrm mvm text-color-5 f4 fw-semibold"/>
+  <apex:commandButton value="Quit" action="{!quit}" rendered="{!completed==false}" rerender="form" styleClass="btn bg-primary-btn btn--primary brm pvs phm border border--3 fr mrm mvm text-color-5 f4 fw-semibold"/>
+  <apex:commandButton value="Submit" action="{!done}" rendered="{!completed}" reRender="form" styleClass="btn bg-primary-btn btn--primary brm pvs phm border border--3 fr mrm mvm text-color-5 f4 fw-semibold"/>
+  
+ </div> 
+
+ </Apex:outputPanel>
+ 
+ <Apex:outputPanel rendered="{!flag==false && timeout==false  && currQuestion.Multi_Select__c==true && doneplay==false && threewrong==false}">
+
+ <div>
+ <div class="content-block place">
+  {!currQuestion.Question__c}</div>
+  <apex:outputText value="{!currQuestion.Option1__r.Option__c}">
+  <apex:inputCheckbox value="{!check1}" styleClass="checkbox checkbox--default checkbox--states-1 brm mrs bg-secondary-btn sq-22 a-mid dib"> </apex:inputcheckbox>
+  </apex:outputText><br/>
+  <apex:outputText value="{!currQuestion.Option2__r.Option__c}">
+  <apex:inputCheckbox value="{!check2}" styleClass="checkbox checkbox--default checkbox--states-1 brm mrs bg-secondary-btn sq-22 a-mid dib" ></apex:inputcheckbox>
+ </apex:outputText><br/>
+ <apex:outputText value="{!currQuestion.Option3__r.Option__c}">
+  <apex:inputCheckbox value="{!check3}" styleClass="checkbox checkbox--default checkbox--states-1 brm mrs bg-secondary-btn sq-22 a-mid dib" ></apex:inputcheckbox>
+ </apex:outputText><br/>
+ <apex:outputText value="{!currQuestion.Option4__r.Option__c}">
+  <apex:inputCheckbox value="{!check4}" styleClass="checkbox checkbox--default checkbox--states-1 brm mrs bg-secondary-btn sq-22 a-mid dib" ></apex:inputcheckbox>
+ </apex:outputText><br/>
+  <apex:commandButton value="Next Question" action="{!submitAns}" rendered="{!completed==false}" rerender="form" styleClass="btn bg-primary-btn btn--primary brm pvs phm border border--3 fr mrm mvm text-color-5 f4 fw-semibold"/>
+  <apex:commandButton value="Quit" action="{!quit}" rendered="{!completed==false}" rerender="form" styleClass="btn bg-primary-btn btn--primary brm pvs phm border border--3 fr mrm mvm text-color-5 f4 fw-semibold"/>
+  <apex:commandButton value="Submit" action="{!done}" rendered="{!completed}" reRender="form" styleClass="btn bg-primary-btn btn--primary brm pvs phm border border--3 fr mrm mvm text-color-5 f4 fw-semibold"/>
+  
+ </div> 
+
+ </Apex:outputPanel>
+
+ 
+ <apex:outputpanel rendered="{!timeout}" id="timeout">
+  <h1 style="color:red;font-weight:bold;"> Time out!!</h1>
+  <apex:commandButton value="Check answers" action="{!showWrongs}" styleClass="btn bg-primary-btn btn--primary brm pvs phm border border--3 fr mrm mvm text-color-5 f4 fw-semibold" />
+ </apex:outputpanel>
+ <apex:outputPanel rendered="{!donePlay}">
+ 
+ You attempted : {!numOfQues} questions. <br/>
+ Correct Answers : {!numOfCorrectAns} . <br/><br/>
+ <apex:outputPanel rendered="{!(numOfwrongAns>0)}">
+ Here are the questions that you could not answer correctly:<br/>
+ <apex:repeat value="{!wrongAns}" var="wq">
+ Question: {!justWrongQuestions[wq]}<br/>
+ Correct Answer: {!wrongAns[wq]}<br/>
+ 
+ </apex:repeat>
+ </apex:outputPanel>
+ </apex:outputpanel>
+ 
+  <!--------------------------------------3 wrong answers--------------------------------------->
+  
+  
+ <apex:outputpanel rendered="{!threewrong}" >
+  <header class="bg-anchor tc ptm">
+   
+   <h1 class="f3 text-color-4 man">
+   Oops !! 3 Wrong Answers
+  </h1>
+  <h2 class="f3 text-color-1 opacity-40 man pbm">
+ Redeem your points and continue to play.
+  </h2>
+</header>
+<!--  <h1 style="color:red;font-weight:bold;">Oops !! 3 Wrong Answers<br/> Redeem your points and continue to play.</h1> -->
+  <apex:commandButton value="Redeem points to continue" action="{!redeemPoints}" reRender="form" styleClass="btn bg-primary-btn btn--primary brm pvs phm border border--3 fr mrm mvm text-color-5 f4 fw-semibold"/>
+  <apex:commandButton value="Quit" action="{!quit}" styleClass="btn bg-primary-btn btn--primary brm pvs phm border border--3 fr mrm mvm text-color-5 f4 fw-semibold"/>
+  <apex:outputPanel rendered="{!haspoints==false}">
+  <p>You do not have any points to redeem!</p>
+  </apex:outputPanel>
+ </apex:outputPanel>
+ 
+ 
+ </apex:form>
+
+</apex:page>

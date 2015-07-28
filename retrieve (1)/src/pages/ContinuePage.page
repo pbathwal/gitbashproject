@@ -1,0 +1,35 @@
+<apex:page standardStylesheets="false" showHeader="false" sidebar="false" controller="ContController">
+   <link href="//sfdc-styleguide.herokuapp.com/styles.css" rel="stylesheet" media="screen"/> 
+ <style type="text/css">
+ 
+#wrap{
+
+margin:0px auto;
+
+}
+.learnc{
+background:#34b59e;
+}
+</style>
+ 
+  <body>
+  <apex:form style="margin-top:100px" >
+  <div class="sg-phone--container">
+  <div class="brm pam pos-rel tc">
+<!--  <button type="button" class="btn bg-primary-btn btn--primary pvs size-full brm no-border main" data-loading-text="Loading..." onclick="gotoassig();" > 
+ <span class="text-color-5 f3 fw-semibold">Back to Home Screen</span>
+ </button> -->
+ <apex:commandButton value="Continue where you left off" action="{!goContinue}" styleClass="btn bg-primary-btn btn--primary pvs size-full brm no-border main learnc text-color-5 f3 fw-semibold"/>
+ </div>
+  </div>
+  <div class="sg-phone--container">
+  <div class="brm pam pos-rel tc">
+<!--  <button type="button" class="btn bg-primary-btn btn--primary pvs size-full brm no-border " data-loading-text="Loading..." onclick="gotoassig();" > 
+ <span class="text-color-5 f3 fw-semibold">Continue to Learn</span>
+ </button> -->
+ <apex:commandButton value="Start Fresh" action="{!goDontContinue}" styleClass="btn bg-primary-btn btn--primary pvs size-full brm no-border main text-color-5 f3 fw-semibold"/>
+ </div>
+  </div>
+</apex:form>
+     </body> 
+</apex:page>

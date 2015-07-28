@@ -1,0 +1,134 @@
+<apex:page standardStylesheets="false" showHeader="false" sidebar="false" controller="playController2" >
+ <link href="//sfdc-styleguide.herokuapp.com/styles.css" rel="stylesheet" media="screen"/> 
+<script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<style>
+.radio{
+
+color : #34b59e;
+padding : 5px 15px;
+border:none !important;
+}
+.radio1{
+border:none !important;
+color : #e260ab;
+padding : 5px 15px;
+}
+.radio2{
+border:none !important;
+color : #34b59e;
+padding : 5px 15px;
+}
+.question table tr td
+{
+ display: block;
+}
+@media screen and (max-width: 767px) {
+    .content-block {
+        width: 100%;
+        float: none;
+    }
+}
+fieldset{
+
+}
+div.content-block{
+color:#ffffff ;
+
+background:#ca679d  !important;
+}
+sg-phone--container{
+
+}
+.question table tr td{
+padding:16px;
+}
+.sf1select{
+width: 99%;
+margin: 0px auto;
+border-radius:2px;
+line-height: 20px;
+border: 1px solid #dfdfdf;
+/* padding: 69px; */
+}
+.place{
+padding: 35px;
+}
+#form{
+margin:10px;
+}
+</style>
+
+<style>
+
+.question table tr td
+{
+ display: block;
+}
+
+</style>
+ <apex:form id="form">
+ <apex:pagemessages ></apex:pagemessages>
+
+<!----------------------------------------------------------------------------------------------------> 
+ <div>
+ <apex:outputPanel rendered="{!currQuestion1.Multi_Select__c ==false}">
+ <div class="content-block place">
+ {!currQuestion1.Question__c}
+ </div>
+  <apex:repeat value="{!options}" var="op"> 
+  <apex:selectradio value="{!answer1}" styleClass="{!IF(op.value==currquestion1.Solution1__c,'radio','radio1')}">
+  <apex:selectOption value="{!op}"/>
+  </apex:selectradio>
+  </apex:repeat>
+  
+  <apex:commandButton value="Next Question" action="{!nextQues}" rendered="{!completed1==false}" rerender="form" styleClass="btn bg-primary-btn btn--primary brm pvs phm border border--3 fr mrm mvm text-color-5 f4 fw-semibold"/><br/>
+  <apex:commandButton value="Done" action="{!done}" rendered="{!completed1}" reRender="form" styleClass="btn bg-primary-btn btn--primary brm pvs phm border border--3 fr mrm mvm text-color-5 f4 fw-semibold"/>
+  <!--<apex:commandButton value="Start Over" action="{!startOver}" rendered="{!completed}" reRender="form" styleClass="btn bg-primary-btn btn--primary brm pvs phm border border--3 fr mrm mvm text-color-5 f4 fw-semibold"/> -->
+ </apex:outputPanel> 
+ </div>
+ 
+ 
+ <!---------------------------------------Multiselect----------------------------------------------->
+ 
+ <div>
+<!-- <apex:outputPanel rendered="{currQuestion1.Multi_Select__c ==true}"> -->
+ <apex:outputPanel rendered="{!myflag}">
+<!--  <div class="content-block place">
+ {!currQuestion1.Question__c}</div>
+  <apex:inputCheckbox value="{!check5}" styleClass="{!IF(currQuestion1.Option1__c == currQuestion1.Solution1__c || currQuestion1.Option1__c == currQuestion1.Solution2__c || currQuestion1.Option1__c == currQuestion1.Solution3__c,'radio','')}">{!currQuestion1.Option1__r.Option__c}</apex:inputcheckbox><br/>
+  <apex:inputCheckbox value="{!check5}" styleClass="{!IF(currQuestion1.Option2__c == currQuestion1.Solution1__c || currQuestion1.Option2__c == currQuestion1.Solution2__c || currQuestion1.Option2__c == currQuestion1.Solution3__c,'radio','')}">{!currQuestion1.Option2__r.Option__c}</apex:inputcheckbox><br/>
+  <apex:inputCheckbox value="{!check5}" styleClass="{!IF(currQuestion1.Option3__c == currQuestion1.Solution1__c || currQuestion1.Option3__c == currQuestion1.Solution2__c || currQuestion1.Option3__c == currQuestion1.Solution3__c,'radio','')}">{!currQuestion1.Option3__r.Option__c}</apex:inputcheckbox><br/>
+  <apex:inputCheckbox value="{!check5}" styleClass="{!IF(currQuestion1.Option4__c == currQuestion1.Solution1__c || currQuestion1.Option4__c == currQuestion1.Solution2__c || currQuestion1.Option4__c == currQuestion1.Solution3__c,'radio','')}">{!currQuestion1.Option4__r.Option__c}</apex:inputcheckbox><br/>
+  -->
+  
+  
+  <div class="content-block place">
+ {!currQuestion1.Question__c}</div>
+  <div class="sf1select1 place1">
+ <section>
+  <article class="mbm db">
+   <input type="checkbox" class="checkbox checkbox--default checkbox--states-1 brm mrs bg-secondary-btn sq-22 a-mid dib" id="checkbox-2a"/>
+<apex:outputText value="{!currQuestion1.Option1__r.Option__c}" styleClass="{!IF(currQuestion1.Option1__c == currQuestion1.Solution1__c || currQuestion1.Option1__c == currQuestion1.Solution2__c || currQuestion1.Option1__c == currQuestion1.Solution3__c,'radio2','')}"></apex:outputText><br/>
+ 
+ 
+ <input type="checkbox" class="checkbox checkbox--default checkbox--states-1 brm mrs bg-secondary-btn sq-22 a-mid dib" id="checkbox-2a"/>
+<apex:outputText value="{!currQuestion1.Option2__r.Option__c}" styleClass="{!IF(currQuestion1.Option2__c == currQuestion1.Solution1__c || currQuestion1.Option2__c == currQuestion1.Solution2__c || currQuestion1.Option2__c == currQuestion1.Solution3__c,'radio2','')}"></apex:outputText><br/>
+  
+  
+  <input type="checkbox" class="checkbox checkbox--default checkbox--states-1 brm mrs bg-secondary-btn sq-22 a-mid dib" id="checkbox-2a"/>
+  <apex:outputText value="{!currQuestion1.Option3__r.Option__c}" styleClass="{!IF(currQuestion1.Option3__c == currQuestion1.Solution1__c || currQuestion1.Option3__c == currQuestion1.Solution2__c || currQuestion1.Option3__c == currQuestion1.Solution3__c,'radio2','')}"></apex:outputText><br/>
+ 
+ <input type="checkbox" class="checkbox checkbox--default checkbox--states-1 brm mrs bg-secondary-btn sq-22 a-mid dib" id="checkbox-2a"/>
+  <apex:outputText value="{!currQuestion1.Option4__r.Option__c}" styleClass="{!IF(currQuestion1.Option4__c == currQuestion1.Solution1__c || currQuestion1.Option4__c == currQuestion1.Solution2__c || currQuestion1.Option4__c == currQuestion1.Solution3__c,'radio2','')}"></apex:outputText><br/>
+  
+  </article>
+  </section></div>
+  
+  <apex:commandButton value="Next Question" action="{!nextQues}" rendered="{!completed1==false}" rerender="form" styleClass="btn bg-primary-btn btn--primary brm pvs phm border border--3 fr mrm mvm text-color-5 f4 fw-semibold"/><br/>
+  <apex:commandButton value="Done" action="{!done}" rendered="{!completed1}" reRender="form" styleClass="btn bg-primary-btn btn--primary brm pvs phm border border--3 fr mrm mvm text-color-5 f4 fw-semibold"/>
+  
+ </apex:outputPanel> 
+</div>
+ </apex:form>
+</apex:page>

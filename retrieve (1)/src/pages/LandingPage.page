@@ -1,0 +1,104 @@
+<apex:page standardStylesheets="false" showHeader="false" sidebar="false" controller="MyLandingPageController">
+
+          <!--  <link href="{!URLFOR($Resource.bootStrap, 'bootstrap/css/bootstrap.min.css')}" rel="stylesheet" media="screen"/> 
+      <apex:includeScript value="{!URLFOR($Resource.bootstrap, 'js/bootstrap.min.js')}"/>         
+         <link href="//getbootstrap.com/examples/signin/signin.css" rel="stylesheet" media="screen"/>-->
+         <link href="//sfdc-styleguide.herokuapp.com/styles.css" rel="stylesheet" media="screen"/> 
+         <!--<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet" media="screen"/> -->
+ <style type="text/css">
+ 
+#wrap{
+
+margin:0px auto;
+
+}
+.learnc{
+background:#e260ab;
+}
+.playc{
+background:#34b59e;
+}
+.aasignc{
+background:#344a5f;
+}
+.main{
+background:#ffffff;
+}
+ </style>
+ 
+  <body>
+  <apex:form style="margin-top:100px">
+  <div class="sg-phone--container">
+  <div class="brm pam pos-rel tc">
+ <!-- <button type="button" class="btn bg-primary-btn btn--primary pvs size-full brm no-border learnc" data-loading-text="Loading..." onclick="gotoplay();" >
+    <span class="text-color-5 f3 fw-semibold">Play</span>
+    </button> -->
+    <apex:commandButton action="{!goToPlay}" styleclass="btn bg-primary-btn btn--primary pvs size-full brm no-border learnc text-color-5 f3 fw-semibold" value="Play"/>
+    
+  </div>
+  </div>
+   <div class="sg-phone--container">
+    <div class="brm pam pos-rel tc">
+    <apex:commandButton action="{!goToLearn}" styleclass="btn bg-primary-btn btn--primary pvs size-full brm no-border playc text-color-5 f3 fw-semibold" value="Learn"/>
+    
+  <!--<button type="button" class="btn bg-primary-btn btn--primary pvs size-full brm no-border playc" data-loading-text="Loading..." onclick="gotolearn();" >
+  <span class="text-color-5 f3 fw-semibold">Learn</span>
+  </button> -->
+  </div>
+  </div>
+  <div class="sg-phone--container">
+  <div class="brm pam pos-rel tc">
+<!-- <button type="button" class="btn bg-primary-btn btn--primary pvs size-full brm no-border aasignc" data-loading-text="Loading..." onclick="gotoassig();" > 
+   <span class="text-color-5 f3 fw-semibold">Assignment</span> -->
+   <apex:commandButton action="{!goToAssignPage}" styleclass="btn bg-primary-btn btn--primary pvs size-full brm no-border aasignc text-color-5 f3 fw-semibold" value="Assignment"/>
+  
+ </div>
+  </div><br/>
+  <br/>
+  <br/> <div class="sg-phone--container">
+  <div class="brm pam pos-rel tc">
+ <!-- <button type="button" class="btn bg-primary-btn btn--primary pvs size-full brm no-border main" data-loading-text="Loading..." onclick="gotoassig();" > 
+ <span class="text-color-1 f3 fw-semibold">About</span> -->
+ <apex:commandButton action="{!goToAbout}" styleclass="btn bg-primary-btn btn--primary pvs size-full brm no-border main text-color-1 f3 fw-semibold" value="About"/>
+ 
+ </div>
+  </div>
+ <div id="wrap">
+
+         <!--<table width="100%" border="0" cellspacing="3" cellpadding="0">
+            <tr>
+               <td>
+                  
+                  <table width="100%" border="0" cellspacing="0" cellpadding="1">
+                     <tr>
+                        <td>
+                          
+                           <form class="form-inline">
+                           
+ 
+
+
+                       <tr >
+                        <td><button type="button" class="btn bg-primary-btn btn--primary pvs size-full brm no-border" data-loading-text="Loading..." onclick="gotoplay();" >Play</button> </td>
+                       </tr>
+                       <tr>
+                        <td><button type="button" class="btn bg-primary-btn btn--primary pvs size-full brm no-border" data-loading-text="Loading..." onclick="gotolearn();">Learning</button> </td>
+                     </tr>
+                             
+                           </form>
+                        </td>
+                     </tr>
+                     
+                      </table>
+                
+               </td>
+            </tr>
+         </table>-->
+        
+        
+ 
+  
+  </div>
+  </apex:form>
+     </body>
+</apex:page>

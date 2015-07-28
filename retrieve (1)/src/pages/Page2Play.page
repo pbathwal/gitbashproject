@@ -1,0 +1,178 @@
+<apex:page standardStylesheets="false" showHeader="false" sidebar="false" controller="page2Controller">
+ <link href="//sfdc-styleguide.herokuapp.com/styles.css" rel="stylesheet" media="screen"/> 
+
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+$(".flag").hide();
+  $("button").click(function(){
+    $(".flag").toggle();
+   
+  });
+});
+$(document).ready(function(){
+$(".flag1").hide();
+  $("button").click(function(){
+    $(".flag1").toggle();
+   
+  });
+});
+$(document).ready(function(){
+$(".flag2").hide();
+  $("button").click(function(){
+    $(".flag2").toggle();
+   
+  });
+});
+$(document).ready(function(){
+$(".flag3").hide();
+  $("button").click(function(){
+    $(".flag3").toggle();
+   
+  });
+});
+</script>
+
+
+<article class="mam bg-1 border border--3 brm">
+  <header class="clear pam border-bottom border--5">
+    <h1 class="fl man fw-normal f5 text-color-1">Topics List</h1>
+  </header>
+  <apex:form id="form">
+<apex:outputPanel rendered="{!noinput}">
+<apex:pageMessages ></apex:pageMessages>
+</apex:outputPanel>
+<div class="sg-phone--container">
+
+<apex:commandButton action="{!clicked}" rerender="form" style="background:url('{!$Resource.Add}');width:35px;height:35px;border:none;"/>
+ <span class="f4 text-color-1">ADM201</span>
+<apex:outputPanel rendered="{!flag}">
+<div class="flag">
+Difficulty Level
+<apex:selectRadio value="{!testCategory}" layout="pageDirection">
+    <apex:selectOption itemValue="two" itemlabel="Super Ninja 2 mins"/>
+    <apex:selectOption itemValue="five" itemlabel="Five Minuite Fun 5 mins"/>
+    <apex:selectOption itemValue="ten" itemlabel="Zen Mode 10 mins"/>
+</apex:selectRadio>
+<apex:commandButton value="Start" action="{!adm1}" reRender="form" styleClass="btn bg-primary-btn btn--primary pvs size-full brm no-border main text-color-5 f3 fw-semibold"/>  
+</div> 
+</apex:outputPanel>
+
+</div> 
+<div class="sg-phone--container">
+
+<apex:commandButton action="{!clicked1}" rerender="form" style="background:url('{!$Resource.Add}');width:35px;height:35px;border:none;"/>
+ <span class="f4 text-color-1">DEV401</span>
+ <apex:outputPanel rendered="{!flag1}">
+<div class="flag1">
+Difficulty Level
+<apex:selectRadio value="{!testCategory}" layout="pageDirection">
+    <apex:selectOption itemValue="two" itemlabel="Super Ninja 2 mins"  />
+    <apex:selectOption itemValue="five" itemlabel="Five Minute Fun 5 mins" />
+    <apex:selectOption itemValue="ten" itemlabel="Zen Mode 10 mins" />
+</apex:selectRadio> 
+<apex:commandButton value="Start" action="{!dev1}" reRender="form" styleClass="btn bg-primary-btn btn--primary pvs size-full brm no-border main text-color-5 f3 fw-semibold"/> 
+</div> 
+</apex:outputPanel>
+</div> 
+<div class="sg-phone--container">
+
+<apex:commandButton action="{!clicked2}" rerender="form" style="background:url('{!$Resource.Add}');width:35px;height:35px;border:none;"/>
+ <span class="f4 text-color-1">Sales Cloud Consultant</span>
+ <apex:outputPanel rendered="{!flag2}">
+<div class="flag2">
+Difficulty Level
+
+<apex:selectRadio value="{!testCategory}" layout="pageDirection" >
+    <apex:selectOption itemValue="two" itemlabel="Super Ninja 2 mins"  />
+    <apex:selectOption itemValue="five" itemlabel="Five Minute Fun 5 mins" />
+    <apex:selectOption itemValue="ten" itemlabel="Zen Mode 10 mins" />
+</apex:selectRadio>
+<apex:commandButton value="Start" action="{!sales1}" reRender="form" styleClass="btn bg-primary-btn btn--primary pvs size-full brm no-border main text-color-5 f3 fw-semibold"/> 
+</div> 
+</apex:outputPanel>
+</div> 
+<div class="sg-phone--container">
+
+<apex:commandButton action="{!clicked3}" rerender="form" style="background:url('{!$Resource.Add}');width:35px;height:35px;border:none;"/>
+ <span class="f4 text-color-1">Service Cloud Consultant</span>
+<apex:outputPanel rendered="{!flag3}">
+<div class="flag3">
+Difficulty Level
+   <apex:selectRadio value="{!testCategory}" layout="pageDirection">
+  <div>  <apex:selectOption itemValue="two" itemlabel="Super Ninja 2 mins" /></div>
+ <div>   <apex:selectOption itemValue="five" itemlabel="Five Minute Fun 5 mins"/> </div>
+  <div>  <apex:selectOption itemValue="ten" itemlabel="Zen Mode 10 mins"/> </div>
+</apex:selectRadio> 
+<apex:commandButton value="Start" action="{!service1}" reRender="form" styleClass="btn bg-primary-btn btn--primary pvs size-full brm no-border main text-color-5 f3 fw-semibold"/> 
+</div> 
+</apex:outputpanel>
+</div> 
+
+</apex:form>
+  <!--<ul class="man pan list-plain">
+  
+
+    <li class="pam border-bottom border--5">
+      <div class="mbs flag flag--rev">
+      <div class="flag--image prm">
+      <apex:commandButton action="{!admLearn}" rerender="form" style="background:url('{!$Resource.AddGreen}');width:35px;height:35px; border:none; "/>
+        </div>
+        
+        <div class="flag--body">
+          <span class="f3 text-color-1 fw-semibold" style="margin-left:20px;">ADM 201</span>
+        </div>
+        
+      </div>
+    </li>
+    
+    <li class="pam border-bottom border--5">
+      <div class="mbs flag flag--rev">
+      <div class="flag--image prm">
+      <apex:commandButton action="{!devLearn}" rerender="form" style="background:url('{!$Resource.AddGreen}');width:35px;height:35px; border:none"/>
+        </div>
+        
+        <div class="flag--body">
+          <span class="f3 text-color-1 fw-semibold" style="margin-left:20px;">DEV 401</span>
+        </div>
+        
+      </div>
+    </li>
+    
+  
+    <li class="pam border-bottom border--5">
+      <div class="mbs flag flag--rev">
+      <div class="flag--image prm">
+      <apex:commandButton action="{!salesLearn}" rerender="form" style="background:url('{!$Resource.AddGreen}');width:35px;height:35px; border:none"/>
+        </div>
+        
+        <div class="flag--body">
+          <span class="f3 text-color-1 fw-semibold" style="margin-left:20px;">Sales Cloud Consultant</span>
+        </div>
+        
+      </div>
+    </li>
+    
+    
+    <li class="pam border-bottom border--5">
+      <div class="mbs flag flag--rev">
+      <div class="flag--image prm">
+      <apex:commandButton action="{!serviceLearn}" rerender="form" style="background:url('{!$Resource.AddGreen}');width:35px;height:35px; border:none"/>
+        </div>
+        
+        <div class="flag--body">
+          <span class="f3 text-color-1 fw-semibold" style="margin-left:20px;">Service Cloud Consultant</span>
+        </div>
+        
+      </div>
+    </li>
+    
+    
+  </ul> -->
+</article>
+
+
+
+</apex:page>

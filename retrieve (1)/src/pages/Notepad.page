@@ -1,0 +1,53 @@
+<apex:page sidebar="false" showHeader="false"  id="pg" >
+<apex:includeScript value="/support/console/26.0/integration.js"/>
+    <script>
+       
+        
+                  
+          function reset()
+        {
+            document.getElementById("{!$Component.pg:fm:pb:pbs1_c:spbs4_c:notes}").value = '';
+            clearall();
+        } 
+                                       
+    </script>
+
+    <style type="text/css">
+    
+
+    
+        #userAgent{height : auto; overflow:hidden;}
+        #userAgent tr,
+        #userAgent td{border:none;}
+        #userAgent ul{padding:0; margin:0;}
+        #userAgent li{list-style:none; list-style-type:none;  margin:0; padding:0;}
+        #userAgent li label{font-weight:bold;text-align:left;}
+        #userAgent input{width:90%}
+        #userAgent textarea{height:150px; width:90%;}
+        
+    </style>  
+
+    <div id="userAgent">
+        <apex:form id="fm" >
+            <apex:pageBlock id="pb" mode="maindetail" >
+                <apex:pageBlockSection columns="1" id="pbs1_c" collapsible="false" >
+                    <ul>
+                        <li>
+                            <label for="spbs4_c">Notes</label>
+                        </li>
+                        <apex:pageblocksectionItem id="spbs4_c">
+                            <apex:inputTextarea rows="400" cols="600" style="overflow-y:scroll;overflow: -moz-scrollbars-vertical;" onkeypress="return true;"/>
+                        </apex:pageblocksectionItem>
+                    </ul>
+                </apex:pageBlockSection>  
+                
+                <br></br>
+                
+                <apex:pageBlockSection > 
+                    <apex:commandButton value="Clear" onclick="reset();" style="margin:0 0 0 80px" ></apex:commandButton>
+                </apex:pageBlockSection>
+                
+            </apex:pageBlock>
+        </apex:form>                    
+    </div>
+</apex:page>

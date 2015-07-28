@@ -1,0 +1,77 @@
+<apex:page standardStylesheets="false" showHeader="false" sidebar="false" controller="MyLandingPageController">
+         <link href="//sfdc-styleguide.herokuapp.com/styles.css" rel="stylesheet" media="screen"/> 
+ <style type="text/css">
+ 
+#wrap{
+
+margin:0px auto;
+
+}
+.learnc{
+background:#e260ab;
+}
+.playc{
+background:#34b59e;
+}
+.aasignc{
+background:#344a5f;
+}
+.main{
+background:#ffffff;
+}
+ </style>
+
+
+<apex:form id="form">
+
+<article class="mam bg-1 border border--3 brm">
+  <ul class="man pan list-plain">
+    <li class="pam border-bottom border--5">
+      <div class="mbs flag flag--rev">
+        <div class="flag--body">
+          <span class="f3 text-color-1 fw-semibold">About</span>
+        </div>
+      </div>
+      <ul class="list-plain man pan">
+             FunLearn is a quick and easy way to learn and test what you have learnt at your finger tips. It beautifully integrates with Chatter to track your progress. It’s attractive and intuitive UI will make your preparations fun.
+      </ul>
+    </li>
+    
+    <li class="pam border-bottom border--5">
+      <div class="mbs flag flag--rev">
+        <div class="flag--body">
+          <span class="f3 text-color-1 fw-semibold" style="color:#e260ab;">Play</span>
+        </div>
+      </div>
+      <ul class="list-plain man pan">
+             This mode chanllenges you to give most number of  right answers in choosen time. That’s not all, 3 wrong answers and session will be over. But you can redeem your Star Point to earn one extra life.
+      </ul>
+    </li>
+    
+       <li class="pam border-bottom border--5">
+      <div class="mbs flag flag--rev">
+        <div class="flag--body">
+          <span class="f3 text-color-1 fw-semibold" style="color:#34b59e;">Learn</span>
+        </div>
+      </div>
+      <ul class="list-plain man pan">
+             This mode lets you go through variety of questions without any time limit. You will get 1 star for each 5 correct answers which can be reddemed in Play mode. Also it prompts you the right answer in case you choose the wrong one.
+      </ul>
+    </li>
+
+  </ul>
+  
+  <div class="sg-phone--container">
+      <div class="brm pam pos-rel tc">
+          <apex:commandButton value="Go Home" action="{!goHome}" styleClass="btn bg-primary-btn btn--primary pvs size-full brm no-border text-color-5 f3 fw-semibold"/>
+      </div>
+  </div>
+  
+  
+</article>
+
+
+
+</apex:form>
+
+</apex:page>
